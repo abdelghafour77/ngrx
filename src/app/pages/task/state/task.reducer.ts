@@ -15,4 +15,11 @@ export const initialState: TaskState = {
 
 export const taskReducer = createReducer<TaskState>(
       initialState,
+
+      on(TaskActions.loadTasksSuccess, (state, action): TaskState => {
+            return {
+                  ...state,
+                  tasks: action.tasks
+            }
+      })
 );

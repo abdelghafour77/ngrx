@@ -4,6 +4,8 @@ import { ListTaskComponent } from './list-task/list-task.component';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { taskReducer } from './state/task.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TaskEffect } from './state/task.effect';
 
 
 const routes: Routes = [
@@ -18,7 +20,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature('task', taskReducer)
+    StoreModule.forFeature('task', taskReducer),
+    EffectsModule.forFeature([TaskEffect])
   ]
 })
 export class TaskModule { }
